@@ -1,12 +1,21 @@
 <template>
-  <div class="flex justify-center gap-4">
+  <div
+    class="
+      flex
+      sm:justify-start
+      md:justify-center
+      gap-4
+      flex-nowrap
+      my-8
+      overflow-x-auto
+    "
+  >
     <div
       :class="{
         'bg-green-400': category === selectedCat,
         'text-white': category === selectedCat,
       }"
       class="
-        my-8
         p-4
         rounded-lg
         cursor-pointer
@@ -14,6 +23,7 @@
         hover:text-white
         flex-auto
         text-center
+        block
       "
       v-for="category in categories"
       :key="category"
