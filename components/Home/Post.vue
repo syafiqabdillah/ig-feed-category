@@ -1,16 +1,22 @@
 <template>
   <div>
-    <!-- With Caption -->
-    <div :class="{ hidden: !useCaption }">
-      <HomeCaptionPost :url="url" />
-    </div>
-    <!-- Without Caption -->
-    <div :class="{ hidden: useCaption }">
-      <HomeNoCaptionPost :url="url" />
-    </div>
+    <HomeEmbeddedPost
+      :class="{
+        hidden: !showCaption,
+      }"
+      :showCaption="true"
+      :url="url"
+    />
+    <HomeEmbeddedPost
+      :class="{
+        hidden: showCaption,
+      }"
+      :showCaption="false"
+      :url="url"
+    />
     <!-- Toggle -->
-    <div class="text-center cursor-pointer" @click="toggleCaption">
-      {{ useCaption ? 'hide' : 'show' }} caption
+    <div class="text-base text-center cursor-pointer" @click="toggleCaption">
+      {{ showCaption ? 'hide' : 'show' }} caption
     </div>
   </div>
 </template>
@@ -20,13 +26,13 @@ export default {
   name: 'Post',
   data() {
     return {
-      useCaption: false,
+      showCaption: false,
       show: true,
     }
   },
   methods: {
     toggleCaption() {
-      this.useCaption = !this.useCaption
+      this.showCaption = !this.showCaption
     },
   },
   props: {

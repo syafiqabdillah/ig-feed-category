@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div v-if="isScriptLoaded">
     <blockquote
       class="instagram-media"
-      data-instgrm-captioned
+      :data-instgrm-captioned="showCaption ? true : false"
       :data-instgrm-permalink="
         url + '?utm_source=ig_embed&amp;utm_campaign=loading'
       "
@@ -277,8 +277,12 @@
 <script>
 import $Scriptjs from 'scriptjs'
 export default {
-  name: 'CaptionPost',
+  name: 'EmbeddedPost',
   props: {
+    showCaption: {
+      type: Boolean,
+      default: false,
+    },
     url: String,
   },
   data() {
@@ -286,10 +290,24 @@ export default {
       isScriptLoaded: false,
     }
   },
+  watch: {
+    showCaption(next) {
+      if (next.showCaption !== this.showCaption) {
+        this.loadPost()
+      }
+    },
+  },
+  methods: {
+    loadPost() {
+      this.isScriptLoaded = false
+      $Scriptjs('https://www.instagram.com/embed.js', () => {
+        window.instgrm.Embeds.process()
+        this.isScriptLoaded = true
+      })
+    },
+  },
   mounted() {
-    $Scriptjs('https://www.instagram.com/embed.js', () => {
-      window.instgrm.Embeds.process()
-    })
+    this.loadPost()
   },
 }
 </script>
