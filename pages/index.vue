@@ -1,9 +1,10 @@
 <template>
-  <div class="px-4 py-16 min-h-screen">
-    <div class="flex flex-wrap justify-center gap-4 text-center text-xl">
+  <div class="py-16 min-h-screen">
+    <!-- Navbar -->
+    <HomeTitleBar :title="selectedCat" />
+    <div class="py-16 flex flex-wrap justify-center gap-4 text-center text-xl">
       <HomePost v-for="url in computedUrls" :key="url.link" :url="url.link" />
     </div>
-    <!-- Categories -->
     <HomeCategories
       :selectedCat="selectedCat"
       :categories="categories"
