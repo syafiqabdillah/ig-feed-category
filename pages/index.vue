@@ -1,14 +1,13 @@
 <template>
-  <div class="px-4 py-16 min-h-screen">
-    <!-- Categories -->
+  <div class="py-16 min-h-screen">
+    <div class="flex flex-wrap justify-center gap-4 text-center text-xl">
+      <HomePost v-for="url in computedUrls" :key="url.link" :url="url.link" />
+    </div>
     <HomeCategories
       :selectedCat="selectedCat"
       :categories="categories"
       :chooseCategory="chooseCategory"
-     />
-    <div class="flex flex-wrap justify-center gap-4 text-center text-xl">
-      <HomePost v-for="url in computedUrls" :key="url.link" :url="url.link" />
-    </div>
+    />
   </div>
 </template>
 
@@ -49,10 +48,10 @@ export default {
     },
     computedUrls() {
       if (this.selectedCat === 'All') return this.urls
-      return this.urls.filter(url => {
+      return this.urls.filter((url) => {
         return url.category === this.selectedCat
       })
-    }
+    },
   },
   mounted() {
     const category = this.$route.query.category
@@ -63,8 +62,8 @@ export default {
   methods: {
     chooseCategory(cat) {
       this.selectedCat = cat
-    }
-  }
+    },
+  },
 }
 </script>
 

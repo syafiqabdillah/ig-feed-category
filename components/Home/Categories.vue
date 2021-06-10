@@ -6,8 +6,15 @@
       md:justify-center
       gap-4
       flex-nowrap
-      my-8
+      py-4
       overflow-x-auto
+      fixed
+      bottom-0
+      left-0
+      w-full
+      px-4
+      bg-white
+      drop-shadow
     "
   >
     <div
