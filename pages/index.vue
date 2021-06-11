@@ -1,9 +1,10 @@
 <template>
-  <div class="py-16 relative h-screen w-screen">
+  <div class="pt-16 pb-20 relative h-screen w-screen">
     <HomeTitleBar :title="selectedCat" />
     <div
       class="
-        py-16
+        pt-8
+        pb-16
         w-full
         h-screen
         flex flex-wrap
@@ -73,6 +74,7 @@ export default {
   methods: {
     chooseCategory(cat) {
       this.selectedCat = cat
+      window.scrollTo(0, 0)
     },
   },
 }

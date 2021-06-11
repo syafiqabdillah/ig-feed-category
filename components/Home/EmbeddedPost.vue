@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isScriptLoaded">
+  <div :class="{ hidden: !isScriptLoaded }">
     <blockquote
       class="instagram-media"
       :data-instgrm-captioned="showCaption ? true : false"

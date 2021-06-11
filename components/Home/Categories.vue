@@ -6,13 +6,13 @@
       md:justify-center
       gap-4
       flex-nowrap
-      py-4
+      p-4
+      h-20
       overflow-x-auto
       fixed
       bottom-0
       left-0
       w-full
-      px-4
       bg-white
       shadow
     "
@@ -23,14 +23,15 @@
         'text-white': category === selectedCat,
       }"
       class="
-        p-4
         rounded-lg
         cursor-pointer
         hover:bg-green-400
         hover:text-white
-        flex-auto
         text-center
-        block
+        flex-auto
+        flex
+        justify-center
+        items-center
       "
       v-for="category in categories"
       :key="category"
