@@ -5,6 +5,7 @@
       class="
         py-16
         w-full
+        h-screen
         flex flex-wrap
         justify-center
         gap-4
