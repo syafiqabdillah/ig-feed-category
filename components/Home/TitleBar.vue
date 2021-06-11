@@ -5,7 +5,7 @@
       fixed
       top-0
       left-0
-      w-full
+      right-0
       h-16
       flex
       justify-center

@@ -1,8 +1,16 @@
 <template>
-  <div class="py-16 min-h-screen">
-    <!-- Navbar -->
+  <div class="py-16 relative h-screen w-screen">
     <HomeTitleBar :title="selectedCat" />
-    <div class="py-16 flex flex-wrap justify-center gap-4 text-center text-xl">
+    <div
+      class="
+        py-16
+        w-full
+        flex flex-wrap
+        justify-center
+        gap-4
+        text-center text-xl
+      "
+    >
       <HomePost v-for="url in computedUrls" :key="url.link" :url="url.link" />
     </div>
     <HomeCategories
