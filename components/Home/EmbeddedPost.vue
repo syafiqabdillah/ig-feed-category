@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ hidden: !isScriptLoaded }">
+  <div :class="{ hidden: !show }">
     <blockquote
       class="instagram-media"
       :data-instgrm-captioned="showCaption ? true : false"
@@ -14,12 +14,8 @@
         box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.5),
           0 1px 10px 0 rgba(0, 0, 0, 0.15);
         margin: 1px;
-        max-width: 540px;
-        min-width: 326px;
         padding: 0;
-        width: 99.375%;
-        width: -webkit-calc(100% - 2px);
-        width: calc(100% - 2px);
+        width: 100%;
       "
     >
       <div style="padding: 16px">
@@ -275,7 +271,6 @@
 </template>
 
 <script>
-import $Scriptjs from 'scriptjs'
 export default {
   name: 'EmbeddedPost',
   props: {
@@ -284,6 +279,8 @@ export default {
       default: false,
     },
     url: String,
+    show: Boolean,
+    setShow: Function,
   },
   data() {
     return {
@@ -298,12 +295,12 @@ export default {
     },
   },
   methods: {
-    loadPost() {
-      this.isScriptLoaded = false
-      $Scriptjs('https://www.instagram.com/embed.js', () => {
-        window.instgrm.Embeds.process()
-        this.isScriptLoaded = true
-      })
+    async loadPost() {
+      try {
+        await window.instgrm.Embeds.process()
+      } catch (err) {
+        console.log(err)
+      }
     },
   },
   mounted() {

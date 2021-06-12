@@ -5,12 +5,13 @@
       fixed
       top-0
       left-0
-      right-0
+      w-full
       h-16
       flex
       justify-center
       items-center
       shadow
+      z-10
     "
   >
     IG Feed Categorizer / bontang.food

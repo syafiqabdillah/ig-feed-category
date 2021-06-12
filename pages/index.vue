@@ -1,16 +1,18 @@
 <template>
-  <div class="pt-16 pb-20 relative h-screen w-screen">
+  <div class="relative flex w-screen max-h-screen">
     <HomeTitleBar :title="selectedCat" />
     <div
       class="
-        pt-8
-        pb-16
+        pt-24
+        pb-20
         w-full
-        h-screen
-        flex flex-wrap
+        h-full
+        flex flex-col
         justify-center
+        items-center
         gap-4
         text-center text-xl
+        overflow-y-auto
       "
     >
       <HomePost v-for="url in computedUrls" :key="url.link" :url="url.link" />

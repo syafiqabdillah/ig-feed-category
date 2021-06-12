@@ -9,12 +9,14 @@
       p-4
       h-20
       overflow-x-auto
+      overflow-hidden
       fixed
       bottom-0
       left-0
-      w-full
       bg-white
       shadow
+      w-screen
+      z-10
     "
   >
     <div
@@ -32,6 +34,7 @@
         flex
         justify-center
         items-center
+        px-4
       "
       v-for="category in categories"
       :key="category"
