@@ -14,13 +14,32 @@
         text-center text-xl
         overflow-y-auto
       "
+      v-if="currentPage === 'posts'"
     >
       <HomePost v-for="url in computedUrls" :key="url.link" :url="url.link" />
+    </div>
+    <div
+      class="
+        pt-24
+        pb-20
+        w-full
+        h-full
+        flex flex-col
+        justify-center
+        items-center
+        gap-4
+        text-center text-xl
+        overflow-y-auto
+      "
+      v-if="currentPage === 'setting'"
+    >
+      this is setting page
     </div>
     <HomeCategories
       :selectedCat="selectedCat"
       :categories="categories"
       :chooseCategory="chooseCategory"
+      :goToSetting="goToSetting"
     />
   </div>
 </template>
@@ -32,6 +51,7 @@ export default {
     return {
       cats: ['All'],
       selectedCat: 'All',
+      currentPage: 'posts',
       urls: [
         {
           link: 'https://www.instagram.com/p/CPcyUljhAg1/',
@@ -75,8 +95,13 @@ export default {
   },
   methods: {
     chooseCategory(cat) {
+      this.currentPage = 'posts'
       this.selectedCat = cat
       window.scrollTo(0, 0)
+    },
+    goToSetting() {
+      this.currentPage = 'setting'
+      this.selectedCat = 'setting'
     },
   },
 }
