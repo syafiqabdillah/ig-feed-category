@@ -56,7 +56,7 @@
       "
       v-for="category in categories"
       :key="category"
-      @click.self="chooseCategory(category)"
+      @click="chooseCategory(category)"
     >
       {{ category }}
     </div>

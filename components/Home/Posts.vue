@@ -1,15 +1,14 @@
 <template>
   <div
     class="
-      pt-24
-      pb-20
+      fixed
+      top-16
+      bottom-20
       w-full
-      h-full
       flex flex-col
-      justify-center
-      items-center
+      pt-8
       gap-4
-      text-center text-xl
+      text-xl
       overflow-y-auto
     "
   >
@@ -23,11 +22,6 @@ export default {
   props: {
     computedUrls: Array
   },
-  watch: {
-    computedUrls() {
-      console.log('ay')
-    }
-  }
 }
 </script>
 

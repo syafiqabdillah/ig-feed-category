@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex w-screen max-h-screen">
+  <div class="relative flex max-w-screen max-h-screen overflow-x-hidden">
     <HomeTitleBar :title="selectedCat" />
     <HomePosts :computedUrls="computedUrls" v-if="currentPage === 'posts'" />
     <HomeSetting v-if="currentPage === 'setting'" />
