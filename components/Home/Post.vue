@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       showCaption: false,
-      show: false,
+      show: true,
     }
   },
   methods: {
@@ -53,8 +53,8 @@ export default {
     },
   },
   mounted() {
-    this.setShow(false)
-    setTimeout(() => this.setShow(true), 2000)
+    // this.setShow(false)
+    // setTimeout(() => this.setShow(true), 2000)
   },
 }
 </script>
