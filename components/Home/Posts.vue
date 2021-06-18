@@ -9,6 +9,7 @@
       pt-8
       gap-4
       text-xl
+      overflow-x-hidden
       overflow-y-auto
     "
   >
